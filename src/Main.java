@@ -21,7 +21,7 @@ public class Main {
     private static void optionsSelection() {
         String[] option = {"1. I wish to review my expenditure",
                 "2. I wish to add my expenditure",
-                "3. I wish to delete all my expenditure",
+                "3. I wish to delete my expenditure",
                 "4. I wish to sort the expenditures",
                 "5. I wish to search for a particular expenditure",
                 "6. Close the application"
@@ -89,8 +89,8 @@ public class Main {
                         break;
                     case 5:
                         System.out.println("Enter the expense you want to search:\t");
-                        int x= sc.nextInt();
-                        searchExpenses(expenses,x);
+                        int searchExpense= sc.nextInt();
+                        searchExpenses(expenses,searchExpense);
                         optionsSelection();
                         break;
                     case 6:
@@ -107,9 +107,22 @@ public class Main {
         System.exit(0);
             }
     private static void searchExpenses(ArrayList<Integer> arrayList, Integer x) {
-        int leng = arrayList.size();
+        //int leng = arrayList.size();
        //  System.out.println("Enter the expense you need to search:\t");
         //Complete the method
+       boolean foundResult = false;
+        for (int expense : arrayList) {
+            if (expense == x) {
+                foundResult = true;
+            }
+        }
+        if (foundResult) {
+            System.out.println("Found expense " + x);
+        } else {
+            System.out.println("Did not find expense " + x);
+        }
+
+
 
     }
     private static void sortExpenses(ArrayList<Integer> arrayList) {
