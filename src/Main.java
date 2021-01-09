@@ -64,19 +64,22 @@ public class Main {
                             case "b":
                                 System.out.println("Enter the expense you want to delete:\t");
                                 int deleteItem = sc.nextInt();
+                                //boolean bk = true;
                                 /* int i = expenses.indexOf(deleteItem);
-                                expenses.remove(i);*/
-                                for (int i = 0; i < expenses.size(); i++) {
-                                    if (deleteItem == expenses.get(i)) {
-                                        expenses.remove(i);
-                                        System.out.println(expenses + "\n");
-                                        System.out.println("requested expense has been deleted and expenses is updated!\n");
-                                        System.out.println("Please choose a option of your choice from the following: ");
-                                        optionsSelection();
-                                        break;
-                                    }
+                                expenses.remove(i);
+                                */
+                                   for (int i = 0; i < expenses.size(); i++) {
+                                       if (deleteItem == expenses.get(i)) {
+                                           expenses.remove(i);
+                                           System.out.println(expenses + "\n");
+                                           System.out.println("requested expense has been deleted and expenses is updated!\n");
+                                           System.out.println("Please choose a option of your choice from the following: ");
+                                           optionsSelection();
+                                           break;
+                                       }
+                                   }
 
-                                }
+
                                 System.out.println("Sorry,the expens you requested to delete doesn't exit in the expenses list");
                                 System.out.println(expenses + "\n");
                                 System.out.println("Please choose a option of your choice from the following: ");
@@ -89,10 +92,10 @@ public class Main {
                         break;
                     case 5:
                         System.out.println("Enter the expense you want to search:\t");
-                        int searchExpense= sc.nextInt();
-                        searchExpenses(expenses,searchExpense);
-                        optionsSelection();
-                        break;
+                        int x= sc.nextInt();
+                        searchExpenses(expenses,x);
+                       // optionsSelection();
+                        // break;
                     case 6:
                         closeApp();
                         break;
@@ -110,7 +113,8 @@ public class Main {
         //int leng = arrayList.size();
        //  System.out.println("Enter the expense you need to search:\t");
         //Complete the method
-       boolean foundResult = false;
+        /* #####################
+      boolean foundResult = false;
         for (int expense : arrayList) {
             if (expense == x) {
                 foundResult = true;
@@ -121,9 +125,19 @@ public class Main {
         } else {
             System.out.println("Did not find expense " + x);
         }
-
-
-
+        ############################*/
+        for (int i = 0; i <arrayList.size(); i++){
+            if (x.equals(arrayList.get(i))){
+                System.out.println( x + " was found in index "+ arrayList.indexOf(x));
+                System.out.println(arrayList + "\n");
+                System.out.println("Please choose a option of your choice from the following: ");
+                optionsSelection();
+            }
+        }
+        System.out.println("Sorry,the expens you requested to search doesn't exit in the list");
+        System.out.println(arrayList + "\n");
+        System.out.println("Please choose a option of your choice from the following: ");
+        optionsSelection();
     }
     private static void sortExpenses(ArrayList<Integer> arrayList) {
         int arrlength =  arrayList.size();
